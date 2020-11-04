@@ -42,12 +42,3 @@ $ php artisan storage:link
 visit at : https://mailtrap.io/
 put mail credentials in .env file
 ```
-
-## Facing any problem? Contact with me
-
-Click on the image bellow to see YouTube video.
-
-[![Laravel 7 Blog CMS](https://img.youtube.com/vi/Cm4Yggm5K9E/0.jpg)](https://www.youtube.com/watch?v=Cm4Yggm5K9E) 
-
-Please visit my website.
-[samironbarai.com](https://samironbarai.com) 
