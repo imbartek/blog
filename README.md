@@ -1,3 +1,6 @@
+## Live version 
+https://www.zdalnaprzyszlosc.pl/
+
 ## Build Blog CMS (Content Management System) with Laravel 7
 
 ## Clone this repo
