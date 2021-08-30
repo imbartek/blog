@@ -11,7 +11,7 @@ menuBtn.addEventListener("click", () => {
         menuOpen = true;
     } else {
         menuBtn.classList.remove("open");
-        menu.style.top = "-10vh";
+        menu.style.top = "-15vh";
         menuOpen = false;
     }
 });

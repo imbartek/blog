@@ -13,9 +13,8 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('name', 'ASC')->where('is_published', '1')->get();
         $posts = Post::orderBy('id', 'DESC')->where('post_type', 'post')->where('is_published', '1')->paginate(5);
-        return view('website.index', compact('posts', 'categories'));
+        return view('website.index', compact('posts'));
     }
 
     public function post($slug)
@@ -28,15 +27,10 @@ class WebsiteController extends Controller
         }
     }
 
-    public function category($slug)
+    public function list_content()
     {
-        $category = Category::where('slug', $slug)->where('is_published', '1')->first();
-        if ($category) {
-            $posts = $category->posts()->orderBy('posts.id', 'DESC')->where('is_published', '1')->paginate(5);
-            return view('website.category', compact('category', 'posts'));
-        } else {
-            return \Response::view('website.errors.404', array(), 404);
-        }
+        $posts = Post::orderBy('id', 'DESC')->where('post_type', 'post')->where('is_published', '1')->paginate(5);
+        return view('website.list_content', compact('posts'));
     }
 
     public function page($slug)
@@ -63,9 +57,9 @@ class WebsiteController extends Controller
             'message' => $request->message,
         ];
 
-        Mail::to('youremailaddress.@gmail.com')->send(new VisitorContact($data));
+        Mail::to('server323499@server323499.nazwa.pl')->send(new VisitorContact($data));
 
-        Session::flash('message', 'Thank you for your email');
+        Session::flash('message', 'Dziękujemy za Twój email :)');
         return redirect()->route('contact.show');
     }
 }

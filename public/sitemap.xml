@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://zdalnaprzyszlosc.pl</loc>
+    <changefreq>daily</changefreq>
+    <lastmod>2020-11-29</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://zdalnaprzyszlosc.pl/table-of-contents</loc>
+    <changefreq>daily</changefreq>
+    <lastmod>2020-11-29</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://zdalnaprzyszlosc.pl/about</loc>
+    <changefreq>daily</changefreq>
+    <lastmod>2020-11-29</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://zdalnaprzyszlosc.pl/contact</loc>
+    <changefreq>daily</changefreq>
+    <lastmod>2020-11-29</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://zdalnaprzyszlosc.pl/post/drugi-post-testowy</loc>
+    <changefreq>daily</changefreq>
+    <lastmod>2020-11-29</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://zdalnaprzyszlosc.pl/post/post-testowy</loc>
+    <changefreq>daily</changefreq>
+    <lastmod>2020-11-29</lastmod>
+  </sitemap>
+</sitemapindex>

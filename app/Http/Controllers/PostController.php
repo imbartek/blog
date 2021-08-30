@@ -28,8 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('admin.post.create', compact('categories'));
+        return view('admin.post.create');
     }
 
     /**
@@ -44,14 +43,12 @@ class PostController extends Controller
             "thumbnail" => 'required',
             "title" => 'required|unique:posts',
             "details" => "required",
-            "category_id" => "required"
         ],
             [
                 'thumbnail.required' => 'Enter thumbnail url',
                 'title.required' => 'Enter title',
                 'title.unique' => 'Title already exist',
                 'details.required' => 'Enter details',
-                'category_id.required' => 'Select categories',
             ]
         );
 
@@ -66,9 +63,7 @@ class PostController extends Controller
         $post->post_type = 'post';
         $post->save();
 
-        $post->categories()->sync($request->category_id, false);
-
-        Session::flash('message', 'Post created successfully');
+        Session::flash('message', 'Post dodany pomyślnie!');
         return redirect()->route('posts.index');
     }
 
@@ -91,8 +86,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $categories = Category::orderBy('name', 'ASC')->pluck('name', 'id');
-        return view('admin.post.edit', compact('categories', 'post'));
+        return view('admin.post.edit', compact('post'));
     }
 
     /**
@@ -108,14 +102,12 @@ class PostController extends Controller
             "thumbnail" => 'required',
             'title' => 'required|unique:posts,title,' . $post->id . ',id', // ignore this id
             'details' => 'required',
-            "category_id" => "required"
         ],
             [
                 'thumbnail.required' => 'Enter thumbnail url',
                 'title.required' => 'Enter title',
                 'title.unique' => 'Title already exist',
                 'details.required' => 'Enter details',
-                'category_id.required' => 'Select categories',
             ]
         );
 
@@ -128,9 +120,8 @@ class PostController extends Controller
         $post->is_published = $request->is_published;
         $post->save();
 
-        $post->categories()->sync($request->category_id);
 
-        Session::flash('message', 'Post updated successfully');
+        Session::flash('message', 'Post edytowany pomyślnie!');
         return redirect()->route('posts.index');
     }
 
@@ -144,7 +135,7 @@ class PostController extends Controller
     {
         $post->delete();
 
-        Session::flash('delete-message', 'Post deleted successfully');
+        Session::flash('delete-message', 'Post usunięty pomyślnie!');
         return redirect()->route('posts.index');
     }
 }

@@ -3,35 +3,29 @@
 @section('content')
     <!-- Page Header -->
     <header class="masthead">
-        <img src="website/img/1.png" alt="1">
+        <img src="website/img/template.png" alt="background" class="background_img">
     </header>
 
     <!-- Main Content -->
     <div class="container" style="margin-top: 5vh;">
         <div class="row">
-            <div class="col-lg-8 col-md-8 mx-auto">
+            <div class="row mx-auto">
                 @foreach($posts as $post)
-                    <div class="post-preview">
+                    <div class="post-preview col-sm">
                         <a href="{{ url('post/' . $post->slug) }}">
+                            <img src="{{ $post->thumbnail }}" alt="thumbnail" width="100%">
                             <h2 class="post-title">
                                 {{ $post->title }}
                             </h2>
-                            <h3 class="post-subtitle">
+                            <h4 class="post-subtitle">
                                 {{ $post->sub_title }}
-                            </h3>
+                            </h4>
                         </a>
-                        <p class="post-meta">Posted by
+                        <p class="post-meta">Dodane przez
                             <a href="#">{{ $post->user->name }}</a>
-                            on {{ date('M d, Y', strtotime($post->created_at)) }}
-                            @if(count($post->categories) > 0)
-                                | <span class="post-category">
-                            Category :
-                                    @foreach($post->categories as $category)
-                                        <a href="{{ url('category/' . $category->slug) }}">{{ $category->name }}</a>,
-                                    @endforeach
-                        </span>
-                            @endif
+                            dnia {{ date('d-m-Y', strtotime($post->created_at)) }}
                         </p>
+                        <div class="crop">{!!$post->details!!}</div>
                     </div>
                     <hr>
             @endforeach
